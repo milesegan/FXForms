@@ -48,6 +48,7 @@ NSString *const FXFormFieldClass = @"class";
 NSString *const FXFormFieldCell = @"cell";
 NSString *const FXFormFieldTitle = @"title";
 NSString *const FXFormFieldPlaceholder = @"placeholder";
+NSString *const FXFormFieldAccessibilityLabel = @"accessibilityLabel";
 NSString *const FXFormFieldDefaultValue = @"default";
 NSString *const FXFormFieldOptions = @"options";
 NSString *const FXFormFieldTemplate = @"template";
@@ -649,6 +650,7 @@ static void FXFormPreprocessFieldDictionary(NSMutableDictionary *dictionary)
 @property (nonatomic, strong) Class valueClass;
 @property (nonatomic, strong) Class cellClass;
 @property (nonatomic, readwrite) NSString *key;
+@property (nonatomic, strong) NSString *accessibilityLabel;
 @property (nonatomic, readwrite) NSArray *options;
 @property (nonatomic, readwrite) NSDictionary *fieldTemplate;
 @property (nonatomic, readwrite) BOOL isSortable;
@@ -2901,6 +2903,7 @@ static void FXFormPreprocessFieldDictionary(NSMutableDictionary *dictionary)
 - (void)update
 {
     self.textLabel.text = self.field.title;
+    self.textField.accessibilityLabel = self.field.accessibilityLabel;
     self.textField.placeholder = [self.field.placeholder fieldDescription];
     self.textField.text = [self.field fieldDescription];
     
