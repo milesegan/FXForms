@@ -2690,6 +2690,7 @@ static void FXFormPreprocessFieldDictionary(NSMutableDictionary *dictionary)
 - (void)update
 {
     self.textLabel.text = self.field.title;
+    self.textLabel.accessibilityLabel = self.field.accessibilityLabel;
     self.detailTextLabel.text = [self.field fieldDescription];
     
     if ([self.field.type isEqualToString:FXFormFieldTypeLabel])
